@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+{% block content %}
+<br><br><br>
+    <section class="main-content pt-4" id="main-content">
+        <div class="container">
+            <br><br><br><br><br><br><br>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                       <h1 class="text-success" style="text-align:center;"><strong>Welcome to <span class="text-danger">{{user.first_name}}</span></strong></h1>
+                    </div> 
+                </div>       
+            </div>   
+        </div>
+    </section>
+    <!-- {% if user.is_authenticated %} 
+    google
+    {% endif %} -->
+{% endblock %}

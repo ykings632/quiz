@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<style type="text/css">
+	body{
+        margin-top:180px;
+	}
+	.signup-form {
+		width: 650px;
+	}
+</style>
+<div class="signup-form">
+    <form action="#" method="post">
+		<h2>Online Quiz Management</h2>
+		<p class="hint-text">Create your account. It's free and only takes a minute.</p>
+        
+		<div class="form-group">
+            <a href="login" style="color:white;" class="btn btn-danger btn-lg btn-block">Login</a>
+            <a href="register" style="color:white;" class="btn btn-success btn-lg btn-block">Register Now</a>
+        </div>
+    </form>
+	
+</div>
+{% endblock %}

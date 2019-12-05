@@ -1,0 +1,175 @@
+{% extends 'main.html' %}
+{% block content %}
+<br><br><br>
+    <section class="main-content pt-4" id="main-content">
+        <div class="container">
+            {{right_answer}}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                     <!-- {% if (‘python’ in [‘Java’, ‘python’, ‘C#’]) %} -->
+						<!-- true -->
+						<!-- {% endif %}    -->
+<!-- {{answer.1}}
+{{answer.2}}
+{{answer.3}}
+{{answer.4}}
+{{answer.5}} -->
+
+                        <!-- Right Answer - {{right_answer}}<br>
+Unanswered - {{unanswered}}<br>
+Worng Answer -{{worng_answer}} -->
+<!-- {{value}} -->
+
+<!-- {% for key, value in answer %}  -->
+
+<!-- {{value}} -->
+
+<!-- {{key}} -->
+
+<!-- {% endfor %}
+{{value.0}} -->
+<!-- {{ answer.1.1 }}
+           {{ answer.2.1 }}
+           {{ answer.3.1 }}
+           {{ answer.4.1 }}
+           {{ answer.5.1 }} -->
+           Your Answer -
+           {% if answer.1.1 == '1' %}
+           &nbsp;
+           <span class="badge badge-primary">Option 1</span>
+           {% endif %}
+           {% if answer.2.1 == '2' %}
+           &nbsp;
+           <span class="badge badge-primary">Option 2</span>
+           {% endif %}
+           {% if answer.3.1 == '3' %}
+           &nbsp;
+           <span class="badge badge-primary">Option 3</span>
+           {% endif %}
+           {% if answer.4.1 == '4' %}
+           &nbsp;
+           <span class="badge badge-primary">Option 4</span>
+           {% endif %}
+           {% if answer.5.1 == '5' %}
+           &nbsp;
+           <span class="badge badge-danger">Unanswered</span>
+           {% endif %}
+<table class="table table-bordered">
+              
+        
+</tr>
+
+{% for values in value %}
+<tr>
+    <td style="width:10%;"><strong>Question - {{forloop.counter}}.</strong></td>
+    <td><strong>{{values.questions}}</strong></td>
+</tr>
+</tr>              
+<td><strong>Options 1.</strong></td>
+<td>{{values.choice1}}</td>
+</tr>
+    
+<tr>              
+    <td><strong>Options 2.</strong></td>
+    <td>{{values.choice2}}</td>
+</tr>
+<tr>              
+    <td><strong>Options 3.</strong></td>
+    <td>{{values.choice3}}</td>
+</tr>
+<tr>              
+    <td><strong>Options 4.</strong></td>
+    <td>{{values.choice4}}</td>
+</tr>
+<tr>              
+    <td><strong>Correct&nbsp;Answer</strong></td>
+    <td>                
+       <span class="badge badge-success">
+             
+           {% if values.correct_answer == '1' %}
+           {{values.choice1}}
+           {% endif %}
+           {% if values.correct_answer == '2' %}
+           {{values.choice2}}
+           {% endif %}
+           {% if values.correct_answer == '3' %}
+           {{values.choice3}}
+           {% endif %}
+           {% if values.correct_answer == '4' %}
+           {{values.choice4}}
+           {% endif %}
+       </span>
+    </td>
+</tr>
+<tr>              
+    <td><strong>Your Answer</strong></td>
+    <td>
+        
+            <!-- {% if answer.2.1|divisibleby:2 %}
+            1
+            {% endif %}
+            {% if answer.3.1|divisibleby:3 %}
+            2
+            {% endif %}
+            {% if answer.4.1|divisibleby:4 %}
+            2
+            {% endif %} -->
+        <!-- {{answer}} -->
+       <!-- {{answer}}.{{forloop.counter}}.1 -->
+        <!-- {% if values.correct_answer == answer.1.1 %}
+           
+           Option 1
+           {% endif %}
+           {% if values.correct_answer == answer.2.1 %}
+           
+           Option 2
+           {% endif %}
+           {% if values.correct_answer == answer.3.1 %}
+           Option3
+           {% endif %}
+           {% if values.correct_answer == answer.4.1 %}
+           Option4
+           {% endif %}
+           {% if values.correct_answer == answer.5.1 %}
+           Unanswered
+           {% endif %} -->
+    </td>
+</tr>
+<!-- <tr>              
+    <td><strong>Your Answer</strong></td>
+    <td>
+       {% for field, valuess in answer %}
+       {{ valuess}} 
+       {% endfor %}   
+            
+           {{answer}}
+           
+           
+           
+              {{answer.1.2}}
+             {{answer.1.3}}
+              {{answer}} 
+           
+    </td>
+</tr> -->
+
+{% endfor %}
+</table>
+<!-- {{answer}}
+{{single}} -->
+<!-- {{ answer.1.1 }} -->
+<!-- {% for item in answer %}
+<p>Question - {{ item.questions }}</p>
+<p>Right Answer - {{ item.correct_answer }}</p>
+<p>Question Id- {{ item.id }}</p>
+{% endfor %} -->
+                    </div> 
+                </div>       
+            </div>   
+        </div>
+    </section>
+    
+{% endblock %}
+
+

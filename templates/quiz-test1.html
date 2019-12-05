@@ -1,0 +1,157 @@
+{% extends 'main.html' %}
+{% block content %}
+<br><br><br>
+<section class="main-content pt-4" id="main-content">
+<div class="container">
+    <div class="row pb-3">
+       <div class="col-md-12 no-margin">
+           <h4>Click and Start Quiz</h4>
+       </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <div >
+                    <form method="post" action="">
+                    {% for quest in questions %}   
+                    
+                        {% if forloop.counter == 1 %}
+                        <div id='question{{forloop.counter}}' class='cont row border' style="padding: 20px;">
+                            <ul style="width:100%;margin-left: -21px;" > 
+                                <li class="list-group-item questions" id="qname{{forloop.counter}}"><strong>Question :</strong> {{quest.questions}} </li>                       <li class="list-group-item"><strong>Option I.</strong> 
+                                <label class="form-check-label">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id='radio1_{{quest.id}}' class="form-check-input checkmark" name="{{quest.id}}">{{quest.choice1}} 
+                                </label>
+                                </li> 
+                                <li class="list-group-item"><strong>Option II.</strong> 
+                                    <label class="form-check-label">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id='radio1_{{quest.id}}' class="form-check-input checkmark" name="{{quest.id}}">{{quest.choice2}} 
+                                    </label>
+                                </li>
+                                <li class="list-group-item"><strong>Option III.</strong> 
+                                    <label class="form-check-label">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" class="form-check-input checkmark" id='radio1_{{quest.id}}' name="{{quest.id}}">{{quest.choice3}} 
+                                    </label>
+                                </li>
+                                <li class="list-group-item"><strong>Option IV.</strong> 
+                                    <label class="form-check-label">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" class="form-check-input checkmark" id='radio1_{{quest.id}}' name="{{quest.id}}">{{quest.choice4}}  
+                                    </label>
+                                </li>
+                            </ul>
+                        
+                            <div class="col-md-12 text-right"> <br> 
+                            
+                            <button type="button" id='{{forloop.counter}}' class="next btn btn-primary btn-outline-info">Next</button>
+                            </div>
+                        </div>    
+                            {% elif forloop.counter < 1  %}
+                        <div id='question{{forloop.counter}}' class='cont row border' style="padding: 20px;">
+                            <ul style="width:100%;margin-left: -21px;"> 
+                                    <li class="list-group-item questions" id="qname{{forloop.counter}}"><strong>Question :</strong> {{quest.questions}}</li>
+                                    <li class="list-group-item"><strong>Option I.</strong> 
+                                    <label class="form-check-label">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" class="form-check-input checkmark" id='radio1_{{quest.id}}' name="{{quest.id}}">{{quest.choice1}}
+                                    </label>
+                                    </li> 
+                                    <li class="list-group-item"><strong>Option II.</strong> 
+                                        <label class="form-check-label">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" class="form-check-input checkmark" id='radio1_{{quest.id}}' name="{{quest.id}}">{{quest.choice2}}
+                                        </label>
+                                    </li>
+                                    <li class="list-group-item"><strong>Option III.</strong> 
+                                        <label class="form-check-label">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" class="form-check-input checkmark" id='radio1_{{quest.id}}' name="{{quest.id}}">{{quest.choice3}}
+                                        </label>
+                                    </li>
+                                    <li class="list-group-item"><strong>Option IV.</strong> 
+                                        <label class="form-check-label">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" class="form-check-input checkmark" id='radio1_{{quest.id}}' name="{{quest.id}}">{{quest.choice4}} 
+                                        </label>
+                                    </li>
+                                </ul>
+                            
+                                <div class="col-md-12 text-right"> <br> 
+                                <button type="button" id='{{forloop.counter}}' class="previous btn btn-primary btn-outline-info">Prevoius</button>&nbsp;&nbsp;
+                                <button type="button" id='{{forloop.counter}}' class="next btn btn-primary btn-outline-info">Next</button>
+                                </div>
+                            </div>    
+                            {% elif forloop.counter == 1 %}
+                            <div id='question{{forloop.counter}}' class='cont row border' style="padding: 20px;">
+                            <ul style="width:100%;margin-left: -21px;"> 
+                                    <li class="list-group-item questions" id="qname{{forloop.counter}}"><strong>Question :</strong> {{quest.questions}}</li>
+                                    <li class="list-group-item"><strong>Option I.</strong> 
+                                    <label class="form-check-label">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" class="form-check-input checkmark" id='radio1_{{quest.id}}' name="{{quest.id}}">{{quest.choice1}} 
+                                    </label>
+                                    </li> 
+                                    <li class="list-group-item"><strong>Option II.</strong> 
+                                        <label class="form-check-label">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" class="form-check-input checkmark" id='radio1_{{quest.id}}' name="{{quest.id}}">{{quest.choice2}}
+                                        </label>
+                                    </li>
+                                    <li class="list-group-item"><strong>Option III.</strong> 
+                                        <label class="form-check-label">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" class="form-check-input checkmark" id='radio1_{{quest.id}}' name="{{quest.id}}">{{quest.choice3}}
+                                        </label>
+                                    </li>
+                                    <li class="list-group-item"><strong>Option IV.</strong> 
+                                        <label class="form-check-label">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" class="form-check-input checkmark" id='radio1_{{quest.id}}' name="{{quest.id}}">{{quest.choice4}}
+                                        </label>
+                                    </li>
+                                </ul>
+                            
+                                <div class="col-md-12 text-right"> <br> 
+                                <button type="button" id='{{forloop.counter}}' class="previous btn btn-primary btn-outline-info">Prevoius</button>&nbsp;&nbsp;
+                                <button type='submit' id='{{forloop.counter}}' class='next btn btn-primary btn-outline-info'>Finish</button>
+                                </div>
+                            </div>   
+                        {% endif %}        
+                    {% endfor %} 
+                </form> 
+                    </div>
+                </div>
+               
+            </div> 
+            <div class="row pt-3">
+                <div class="col-md-12">
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+</section>
+<br>
+{% load static %}
+<script src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
+	<script src="{% static 'css/bootstrap4/bootstrap.min.js' %}"></script>
+	<!-- <script src="{% static 'js/jquery.validate.min.js' %}"></script> -->
+	<script>
+			$('.cont').addClass('hide');
+			count=$('.questions').length;
+			 $('#question'+1).removeClass('hide');
+			 
+			 $(document).on('click','.next',function(){
+                
+				 last=parseInt($(this).attr('id'));     
+				 nex=last+1;
+                 alert(nex);
+				 $('#question'+last).addClass('hide');
+				 
+				 $('#question'+nex).removeClass('hide');
+			 });
+			 
+			 $(document).on('click','.previous',function(){
+				 last=parseInt($(this).attr('id'));     
+				 pre=last-1;
+				 $('#question'+last).addClass('hide');
+				 
+				 $('#question'+pre).removeClass('hide');
+			 }); 
+	</script>
+{% endblock %}

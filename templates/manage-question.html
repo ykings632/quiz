@@ -1,0 +1,70 @@
+{% extends 'main.html' %}   
+{% block content %}
+<br><br><br>
+	<section class="main-content pt-4" id="main-content">
+		<div class="container">
+			<div class="row pb-3">
+			   <div class="col-md-12 no-margin">
+				   <h5><strong>Manage Questions</strong> <span class="pull-right"><a href="{% url 'add_question' %}" class="btn btn-info">Add Question</a></span></h5>
+			   </div>
+			   <hr>
+			</div>
+			<div class="row">
+				<div class="container">
+					{% for message in messages %}
+						<div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+							</button>
+							{{ message }}
+						</div>
+					{% endfor %}
+					<div class="table-responsive">		 
+						<table class="table table-bordered display" id="example" class="" >
+							<thead>
+							  <tr>
+								<th>S.No.</th>
+								<th>Question</th>
+								<th>Right Answer</th>
+								<th>Choice 1</th>
+								<th>Choice 2</th>
+								<th>Choice 3</th>
+								<th>Choice 4</th>
+								<th>Action</th>
+							  </tr>
+							</thead>
+							<tbody>
+							{% for question in Questions %}
+							  <tr>
+								<td>{{forloop.counter}}</td>
+								<td>{{question.questions}}</td>
+								<td>{{question.choice1}}</td>
+								<td>{{question.choice2}}</td>
+								<td>{{question.choice3}}</td>
+								<td>{{question.choice4}}</td>
+								<td>{{question.correct_answer}}</td>
+								<td>
+								<a href="{% url 'delete_question' question.pk %}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
+								<a href="{% url 'edit_question' question.pk %}" class="btn btn-success btn-sm"><i class="fa fa-pencil"></i> Edit</a>
+								</td>
+							  </tr>
+							{% endfor %}  
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+<br>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet"> 
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script>
+    $(document).ready(function() {
+            $('#example').DataTable();
+        } );
+    </script>
+ {% endblock %} 

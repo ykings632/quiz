@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'css/bootstrap4/bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
+    <script src="{% static 'css/bootstrap4/jquery.min.js' %}"></script>
+	
+
+    <style>
+    .nav-link{
+    color: rgba(0, 0, 0, 0.97)!important;
+    /* font-weight:500; */
+    }
+</style>
+
+</head>
+<body>
+	<nav class="navbar navbar-expand-sm bg-light navbar-light border fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">
+			  <strong>Online Quiz</strong>
+			</a>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+				<span class="navbar-toggler-icon"></span>
+			</button>                                                                                       
+
+			<div class="collapse navbar-collapse" id="collapsibleNavbar">
+				{% if user.is_superuser %}
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'manage_question' %}">Manage Questions</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'manage_student' %}">Manage Students</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'change_password' %}">Change Password</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'logout' %}">Logout</a>
+						</li>
+					</ul>
+				{% else %}
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'quiz_test' %}">Exam</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'change_password' %}">Change Password</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'logout' %}">Logout</a>
+						</li>
+					</ul>
+				{% endif %}
+				
+			</div>
+		</div>
+	</nav>
+    {% block content %}
+    
+	{% endblock %}
+	
+
+  </body>
+</html>
+	

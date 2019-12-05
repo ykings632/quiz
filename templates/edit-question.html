@@ -1,0 +1,77 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<br><br>
+<section class="main-content pt-4" id="main-content">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                
+                <div class="col-md-8">
+                    <div class=" border" style="padding: 20px;">
+                        <div class="col-md-12 no-margin">
+                           <h4>Add Question</h4>
+                       </div>
+                       <hr>
+					    {% for message in messages %}
+							<div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+								</button>
+								{{ message }}
+							</div>
+						{% endfor %}
+                        <form action="{% url 'update_question_data' %}" method="post">
+                            {% for row in data %}
+                               
+                            
+							{% csrf_token %}
+                            <div class="row">
+                                <input type='hidden' name='question_id' value="{{row.id}}">
+                                <div class="form-group col-md-12">
+                                    <label for="email"><strong>Question:</strong></label>
+                                    <textarea type="text" name="questions" class="form-control">{{row.questions}}</textarea>
+                                </div>
+                                  <div class="form-group col-md-6">
+                                      <label for="email"><strong>Option 1:</strong></label>
+                                      <textarea type="text" class="form-control" name="choice1">{{row.choice1}}</textarea>
+                                  </div>
+                                  <div class="form-group col-md-6">
+                                      <label for="email"><strong>Option 2:</strong></label>
+                                      <textarea type="text" class="form-control" name="choice2">{{row.choice2}}</textarea>
+                                  </div>
+                                  <div class="form-group col-md-6">
+                                    <label for="email"><strong>Option 3:</strong></label>
+                                    <textarea type="text" class="form-control" name="choice3">{{row.choice3}}</textarea>
+                                  </div>
+                                  <div class="form-group col-md-6">
+                                      <label for="email"><strong>Option 4:</strong></label>
+                                      <textarea type="text" class="form-control" name="choice4">{{row.choice4}}</textarea>
+                                  </div>
+                                  <div class="form-group col-md-12">
+                                    <label for="email"><strong>Right Answer:</strong></label>
+                                    <select class="form-control" name="right_answer">
+                                        <option value="1" {% if row.correct_answer == '1' %} selected {% endif %}>Option 1</option>
+                                        <option value="2" {% if row.correct_answer == '2' %} selected {% endif %}>Option 2</option>
+                                        <option value="3" {% if row.correct_answer == '3' %} selected {% endif %}>Option 3</option>
+                                        <option value="4" {% if row.correct_answer == '4' %} selected {% endif %}>Option 4</option>
+                                    </select>
+                                </div>
+                                  <div class="col-md-12">
+                                    <button type="submit" class="btn btn-primary">Add Question</button>
+                                  </div>
+                            </div>
+                            {% endfor %}
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-4"><br><br><br><br><br><br>
+                  <img src="{% static 'images/question.jpg'%}" class="img-responsive img-thumbnail" style="height:250px;">
+                </div>
+            </div> 
+        </div>      
+    </div>
+</div>
+</section>
+{% endblock %}
